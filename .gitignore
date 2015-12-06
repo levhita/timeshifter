@@ -32,3 +32,14 @@
 
 # Debug files
 *.dSYM/
+
+.anjuta/*
+.anjuta_sym_db.db
+.anjuta/
+Debug/
+Optimized/
+timeshifter.anjuta
+autom4te.cache/
+.deps/
+config.log
+timeshifter

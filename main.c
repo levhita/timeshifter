@@ -1,3 +1,4 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
 /*
  * TimeShifter: given a set of standalone frames, creates a sequence of them shifted in time.
  * Copyright (C) 2015 Argel Arias <levhita@gmail.com>
@@ -286,3 +287,5 @@ int main(int argc, char **argv) {
 	}
 	return 0;
 }
+
+
