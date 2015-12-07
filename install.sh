@@ -1,12 +1,12 @@
 #!/bin/bash
-usage="Installs timeshifter to ~/.bin directory
+usage="Compile and Installs Timeshifter
 
 Usage: install.sh [-options]
 
 Where options can be
 -c	Compile timeshifter_core
--u	Copy the executables to ~/.bin
--e 	Adds the export line at the end of the .bashrc"
+-u	Copy the executables to ~/.bin (run it again when updating to a new version)
+-e 	Adds the export line at the end of the .bashrc sou you can run it everywhere"
 
 hflag='yes'
 cflag='no'
