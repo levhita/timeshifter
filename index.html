@@ -1,86 +1,107 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>Timeshifter by levhita</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Timeshifter by levhita</title>
 
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="stylesheets/github-light.css">
-  <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Timeshifter</h1>
-        <p>A tool to make a Timeshift effect on animations/gifs/videos.</p>
+	<link rel="stylesheet" href="stylesheets/styles.css">
+	<link rel="stylesheet" href="stylesheets/github-light.css">
+	<meta name="viewport" content="width=device-width">
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<h1>Timeshifter</h1>
+				<p>A tool to make a Timeshift effect on animations/gifs/videos.</p>
 
-        <p class="view"><a href="https://github.com/levhita/timeshifter">View the Project on GitHub <small>levhita/timeshifter</small></a></p>
+				<p class="view"><a href="https://github.com/levhita/timeshifter">View the Project on GitHub <small>levhita/timeshifter</small></a></p>
 
 
-        <ul>
-          <li><a href="https://github.com/levhita/timeshifter/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/levhita/timeshifter/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/levhita/timeshifter">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-          <h3>TimeShifter</h3>
+				<ul>
+					<li><a href="https://github.com/levhita/timeshifter/zipball/master">Download <strong>ZIP File</strong></a></li>
+					<li><a href="https://github.com/levhita/timeshifter/tarball/master">Download <strong>TAR Ball</strong></a></li>
+					<li><a href="https://github.com/levhita/timeshifter">View On <strong>GitHub</strong></a></li>
+				</ul>
+			</header>
+			<section>
+				<h3>
+					<h3>TimeShifter</h3>
 
-          <h3>What does timeshift means?</h3>
-          <p>The idea behind timeshif is to shift the content of the gif/animation/video by one frame every slice, the amount of slices can be controlled to create different effects. Take a look at the following examples</p>
-          
-          <h4>Example</h4>
-          <p>
-            <img src="images/colors.gif" style="width:49%"/> <img src="images/colors_timeshifted_16.gif" style="width:49%"/><br>
-            <strong>Input:</strong> 16 frames, cycles trougth the rainbow (256x256px)<br>
-            <strong>Output:</strong> 16 slices, 16px per slice.
-          </p>
-          <h4>Slices</h4>
-          <p>By default timeshifter will make as many slices as frames in the animation, but can alter that to create different effects</p>
-          <p>
-            <img src="images/colors_timeshifted_32.gif" style="width:49%"/> <img src="images/colors_timeshifted_32.gif" style="width:49%"/><br>
-            32 slices, 8px per slice | 64 slices, 4px per slice<br>
-            <img src="images/colors_timeshifted_128.gif" style="width:49%"/> <img src="images/colors_timeshifted_256.gif"style="width:49%"/><br>
-            128 slices, 2px per slice | 256 slices, 1px per slice<br>
-          </p>
+					<h3>What does timeshift means?</h3>
+					<p>The idea behind timeshif is to shift the content of the gif/animation/video by one frame every slice, the amount of slices can be controlled to create different effects. Take a look at the following examples.</p>
+					
+					<h4>Example</h4>
+					<p>
+						<img src="images/colors.gif" style="width:49%"/> <img src="images/colors_timeshifted_16.gif" style="width:49%"/><br>
+						<strong>Input:</strong> 16 frames, cycles trougth the rainbow (256x256px)<br>
+						<strong>Output:</strong> 16 slices, 16px per slice.
+					</p>
+					<h4>Slices</h4>
+					<p>By default timeshifter will make as many slices as frames in the animation, but you can alter it that to create different effects.</p>
+					<p>
+						<img src="images/colors_timeshifted_32.gif" style="width:49%"/> <img src="images/colors_timeshifted_32.gif" style="width:49%"/><br>
+						32 slices, 8px per slice || 64 slices, 4px per slice<br>
+						<img src="images/colors_timeshifted_128.gif" style="width:49%"/> <img src="images/colors_timeshifted_256.gif"style="width:49%"/><br>
+						128 slices, 2px per slice || 256 slices, 1px per slice<br>
+					</p>
 
-          <h3>Practical Examples</h3>
-          <h4>Comics</h4>
-          <p>Comics, this one doesn't look good but gives a good idea of what are the forces behind Timeshift</p>
-          <img src="images/heroes.gif" style="width:49%"/>
-          <img src="images/heroes_timeshifted.gif" style="width:49%"/>
-          <h4>Spin</h4>
-          <p>Things spinning make good subjects, even more if they are already cycled</p>
-          <img src="images/spin.gif"/>
-          <img src="images/spin_timeshifted.gif"/>
-          
-          <h4>Compile</h4>
-          <p>First install support for Libpng development (which timeshifter relays heavily on).</p>
-          <pre>#ubuntu<br>sudo apt-get install libpng12-dev</pre>
-          <p>Simply compile using gcc, don't forget to add the -lpng flag.</p>
-          <pre>gcc main.c -lpng -o timeshifter</pre>
-          <p>The executable <strong>timeshifter</strong> file is ready to use.</p>
-          <p>I personally have a folder for this kind of small programs and scripts which I added to the execution path my .bashrc, if that's not you favorite thing in the world please tell me and I can add the ./configure &amp; make &amp; sudo make install files to the repo(which i frankly feel it's too much for a simple main.c file).</p>
-          
-          <p>If you compile it for windows or Osx, or other linux distributions please ping with how you did it to update the instructions.</p>
-          <h4>Install in my way:</h4>
-          <pre>#Make a .bin dir in your home and copy timeshifter on it.<br>mkdir ~/.bin &amp; cp timeshifter ~/.bin/<br>#Go to your home directory and append the export line to .bashrc.<br>#Dont forget to replace &ltyoursusername&gt!<br>cd ~ &amp; echo 'export PATH=$PATH:/home/&lt;yourusername&gt;/.bin/' >> .bashrc</pre>
-          <h3>
-            <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+					<h3>Practical Examples</h3>
+					<h4>Morph</h4>
+					<p>Notice how each slices is basically running the animation in the same order and place, just shifted.</p>
+					<img src="images/heroes.gif" style="width:49%"/>
+					<img src="images/heroes_timeshifted.gif" style="width:49%"/><br>
+					<img src="images/heroes_timeshifted_16.gif" style="width:49%"/>
+					<img src="images/heroes_timeshifted_32.gif" style="width:49%"/>
+					<p>The first one is the original, the second has 1px slices, while the 3rd and 4th have 16 and 32 slices respectively</p>
+					
+					<h4>Spin</h4>
+					<p>Things spinning make good subjects, even more if they are already cycled.</p>
+					<img src="images/spin.gif"/>
+					<img src="images/spin_timeshifted.gif"/>
+					
+					<h4>Compile</h4>
+					<p>First install support for Libpng development (which timeshifter relays heavily on).</p>
+					<pre>#ubuntu<br>sudo apt-get install libpng12-dev</pre>
+					<p>Simply compile using gcc, don't forget to add the -lpng flag.</p>
+					<pre>gcc main.c -lpng -o timeshifter</pre>
+					<p>The executable <strong>timeshifter</strong> file is ready to use.</p>
+					<p>If you compile it for windows or Osx, or other linux distributions please ping with how you did it to update the instructions.</p>
+					
+					<h4>Install in my way:</h4>
+					<p>I have a folder for this kind of small programs and scripts which I added to the execution path in .bashrc, if that's not you favorite thing in the world please tell me and I can add the ./configure &amp; make &amp; sudo make install files to the repo(which i frankly feel it's too much for a simple main.c file).</p>
 
-            <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-          </section>
-          <footer>
-            <p>This project is maintained by <a href="https://twitter.com/levhita">levhita</a></p>
-            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-          </footer>
-        </div>
-        <script src="javascripts/scale.fix.js"></script>
+					<p>The repo comes with a useful install.sh script that you can use to compile, install and update timeshifter and timeshifter_core in the ~/.bin directory</p>
+					
+					<pre>./install.sh
+Compile and Installs Timeshifter
 
-      </body>
-      </html>
+Usage: install.sh [-options]
+
+Where options can be
+-c  Compile timeshifter_core
+-u  Copy the executables to ~/.bin (run it again when updating to a new version)
+-e  Adds the export line at the end of the .bashrc sou you can run it everywhere</pre>
+
+					<p>For a first install just run:</p>
+					<pre>./install -cue</pre>
+					<p>If you are updating the package:</p>
+					<pre>./install -u</pre>
+				 
+
+					<h3>Support or Contact</h3>
+
+						<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+					</section>
+					<footer>
+						<p>This project is maintained by <a href="https://twitter.com/levhita">levhita</a></p>
+						<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+					</footer>
+				</div>
+				<script src="javascripts/scale.fix.js"></script>
+
+			</body>
+			</html>
