@@ -126,7 +126,7 @@ if [ $vflag = yes ]; then
 fi
 start=`date +%s`
 
-timeshifter _timeshifter_temp_dir_/ $output $frames $slices
+timeshifter_core _timeshifter_temp_dir_/ $output $frames $slices
 
 end=`date +%s`
 runtime=$((end-start))
