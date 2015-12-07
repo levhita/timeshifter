@@ -1,14 +1,15 @@
 #!/bin/bash
-usage="Shifts time over a gif
+usage="Timeshifter A tool to make a Timeshift effect on animations/gifs/videos.
 
-Usage: timerelapser [-options] source.gif|source/
+Usage: timeshifter [-options] source.gif|source/
 
 Where options can be
 -h		show this help
 -v		verbose
--slices <int>	shorten the slices (in exchange for vertical resolution)
+-slices <int>	select the amount of slices (defaults to the height)
 -o output/	set output folder, defaults to source output without .gif extension
--g <delay>	Make a GIF named as <output>_timerelapsed.gif, 5 == 50ms" 
+-g <delay>	Make a GIF named as <output>_timerelapsed.gif, 5 == 50ms
+-e folder	extract the gif as single frames to the given folder and then exits" 
 
 vflag='no'
 sflag='no'
@@ -16,7 +17,9 @@ aflag='no'
 slices=0
 output='output/'
 gflag='no'
-while getopts "ahvs:o:g:" opt; do
+eflag='no'
+extraction=''
+while getopts "ahvs:o:g:e:" opt; do
 	case $opt in
 		h)
 			echo "$usage">&2
@@ -40,6 +43,10 @@ while getopts "ahvs:o:g:" opt; do
 			output=$OPTARG
 			clean="${output::-1}"
 			;;
+		e)
+			eflag='yes'		
+			extraction=$OPTARG
+			;;
 		:)
 			echo "Option -$OPTARG requires an argument." >&2
 			exit 1
@@ -60,36 +67,46 @@ if [ $output = "output/" ]; then
 	fi
 fi
 
+if [ $eflag = yes ]; then
+	if [ ! -d $extraction ]; then
+	    mkdir -p $extraction;
+	fi;
+	convert -coalesce $source -colorspace sRGB -alpha on PNG32:$extraction/%03d.png
+	echo "Extraction Finished"
+	exit 0
+fi
+
+
 if [ $vflag = yes ]; then
 	echo "Source: $source"	
 	echo "Output: $output"
 	if [ $gflag = yes ]; then
-		echo "Gif: ${clean}_timerelapsed.gif"
+		echo "Gif: ${clean}_timeshifted.gif"
 	fi
 fi
 
-rm -rf _timerelapser_temp_dir_/
-mkdir -p _timerelapser_temp_dir_/singles
-
+rm -rf _timeshifter_temp_dir_/
+mkdir -p _timeshifter_temp_dir_/
 if [ ! -d $output ]; then
     mkdir -p $output
 fi
 
-if [ $vflag = yes ]; then
-	echo "Spliting..."
-fi
-
 if [[ -d $source ]]; then
-	cp $source/*.png _timerelapser_temp_dir_/singles/
+	if [ $vflag = yes ]; then
+		echo "Copyng..."
+	fi
+	cp $source/*.png _timeshifter_temp_dir_/
 elif [[ -f $source ]]; then
-	convert -coalesce $source -colorspace sRGB -alpha on PNG32:_timerelapser_temp_dir_/singles/%03d.png
+	if [ $vflag = yes ]; then
+		echo "Spliting..."
+	fi
+	convert -coalesce $source -colorspace sRGB -alpha on PNG32:_timeshifter_temp_dir_/%03d.png
 fi
 
-cp _timerelapser_temp_dir_/singles/*.png $output
+cp _timeshifter_temp_dir_/*.png $output
 
-frames=$(ls -1 _timerelapser_temp_dir_/singles/| wc -l)
-lt_frames=$(expr $frames - 1)
-height=$(identify -format "%H" _timerelapser_temp_dir_/singles/001.png)
+frames=$(ls -1 _timeshifter_temp_dir_/| wc -l)
+height=$(identify -format "%H" _timeshifter_temp_dir_/000.png)
 
 if [ $sflag = no ]; then
 	slices=$frames
@@ -109,16 +126,15 @@ if [ $vflag = yes ]; then
 fi
 start=`date +%s`
 
-timeshifter _timerelapser_temp_dir_/singles/ $output $frames $slices
+timeshifter _timeshifter_temp_dir_/ $output $frames $slices
 
 end=`date +%s`
 runtime=$((end-start))
 echo "Time elapsed ${runtime}secs"
 
 #cleans all
-rm -rf _timerelapser_temp_dir_/ 
-beep
-notify-send "Timerelapser Finished"
+rm -rf _timeshifter_temp_dir_/ 
+echo "Timeshifter Finished"
 
 if [ $aflag = yes ]; then
 	animate -delay 5 $output/*.png
@@ -126,6 +142,6 @@ fi
 
 if [ $gflag = yes ]; then
 	echo "Generating gif..."
-	convert -delay $delay -loop 0 $output/*.png "${clean}_timerelapsed.gif"
-	eog "${clean}_timerelapsed.gif"
+	convert -delay $delay -loop 0 $output/*.png "${clean}_timeshifted.gif"
+	eog "${clean}_timeshifted.gif"
 fi
