@@ -92,6 +92,31 @@ Where options can be
 					<pre>./install -u</pre>
 				 
 
+					<h3>Usage</h3>
+					<p>Timeshifter is splitted in 2 files:
+					<ul>
+						<li>Timeshifter(the bash): A bash script that handles input(as gifs) and creates the necesary png files for the core Ansi C program, it also take the output png files and create gifs or animations.</li>
+						<li>Timeshifter Core: A highly optimized Ansi C, that does the heavy lifting it only receive and input folder with pngs, and create an output folder with pngs.</li>
+					</ul>
+					Timeshifter(the bash) relays heavily on the mighty ImageMagick, so please install it first if you want to use the convenient gif processing and generation functions of Timeshifter(the bash).</p>
+
+					<pre>sudo apte-get install imagemagick</pre>
+					<h4>Use cases</h4>
+					<p>Create a timeshift from a Gif, the -v makes it verbose, the -a opens a window at the end with animation.</p>
+					<pre>timeshifter -v -a the.gif</pre>
+
+					<p>Create timeshifted gif from a gif, the -g 4 makes a gif with a delay of 40ms between each frame</p>
+					<pre>timeshifter -v -g 4 the.gif</pre>
+
+					<p>Sometimes the gif is to long and is very slow to convert the gif to single pngs everytime you test, use -e &lt;folder&gt; to extract it just once and then just specify the extracted folder as the source.</p>
+					<pre>
+timeshifter -v -e extracted/ the.gif
+timeshifter -v -a -o the_gif/ extracted/
+					</pre>
+
+					<p>Create timeshifted gif from a gif, the -g 4 makes a gif with a delay of 40ms between each frame</p>
+					<pre>timeshifter -v -g 4 the.gif</pre>
+
 					<h3>Support or Contact</h3>
 
 						<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
