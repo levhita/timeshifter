@@ -35,7 +35,7 @@
 					
 					<h4>Examples:</h4>
 					<p><img src="images/spin_timeshifted.gif"/><br>
-					Timeshifting effect applied to a cinemagraphed gif of guy spining on his head.</p>
+					Timeshift effect applied to a cinemagraphed gif of guy spining on his head.</p>
 										
 					<p>For a detailed explanation and examples please refer to <a href="examples.html">the examples page</a>.
 					
@@ -48,7 +48,7 @@
 					<p>If you compile it for windows or Osx, or other linux distributions please ping with how you did it to update the instructions.</p>
 					
 					<h4>Install in my way:</h4>
-					<p>I have a folder for this kind of small programs and scripts which I added to the execution path in .bashrc, if that's not you favorite thing in the world please tell me and I can add the ./configure &amp; make &amp; sudo make install files to the repo(which i frankly feel it's too much for a simple main.c file).</p>
+					<p>I have a folder for this kind of small programs and scripts which I added to the execution path in .bashrc, if that's not you favorite thing in the world please tell me and I can add the ./configure &amp; make &amp; sudo make install files to the repo(which I frankly feel it's too much for a simple main.c file).</p>
 
 					<p>The repo comes with a useful install.sh script that you can use to compile, install and update timeshifter and timeshifter_core in the ~/.bin directory</p>
 					
@@ -71,13 +71,16 @@ Where options can be
 					<h3>Usage</h3>
 					<p>Timeshifter is splitted in 2 files:
 					<ul>
-						<li>Timeshifter(the bash): A bash script that handles input(as gifs) and creates the necesary png files for the core Ansi C program, it also take the output png files and create gifs or animations.</li>
-						<li>Timeshifter Core: A highly optimized Ansi C, that does the heavy lifting it only receive and input folder with pngs, and create an output folder with pngs.</li>
+						<li>Timeshifter(the bash): A bash script that handles input(gifs) and creates the necesary png files for the core Ansi C program, it also takes the output png files and generate gifs(that you should optimize in your favorite tool).</li>
+						<li>Timeshifter Core: A highly optimized Ansi C, that does the heavy lifting it only receive an input folder with pngs and create an output folder with the resulting pngs.</li>
 					</ul>
+					
 					Timeshifter(the bash) relays heavily on the mighty ImageMagick, so please install it first if you want to use the convenient gif processing and generation functions of Timeshifter(the bash).</p>
 
 					<pre>sudo apte-get install imagemagick</pre>
-					<h4>Use cases</h4>
+					
+					<h4>Use cases:</h4>
+					
 					<p>Create a timeshift from a Gif, the -v makes it verbose, the -a opens a window at the end with the animation(individual pngs exported to the_animation/).</p>
 					<pre>timeshifter -v -a the_animation.gif</pre>
 
