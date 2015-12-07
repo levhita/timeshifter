@@ -42,4 +42,7 @@ timeshifter.anjuta
 autom4te.cache/
 .deps/
 config.log
-timeshifter
+timeshifter_core
+timeshifter.sublime-project
+timeshifter.sublime-workspace
+
