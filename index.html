@@ -58,13 +58,25 @@
           <p>Things spinning make good subjects, even more if they are already cycled</p>
           <img src="images/spin.gif"/>
           <img src="images/spin_timeshifted.gif"/>
+          
+          <h4>Compile</h4>
+          <p>First install support for Libpng development (which timeshifter relays heavily on).</p>
+          <pre>#ubuntu<br>sudo apt-get install libpng12-dev</pre>
+          <p>Simply compile using gcc, don't forget to add the -lpng flag.</p>
+          <pre>gcc main.c -lpng -o timeshifter</pre>
+          <p>The executable <strong>timeshifter</strong> file is ready to use.</p>
+          <p>I personally have a folder for this kind of small programs and scripts which I added to the execution path my .bashrc, if that's not you favorite thing in the world please tell me and I can add the ./configure &amp; make &amp; sudo make install files to the repo(which i frankly feel it's too much for a simple main.c file).</p>
+          
+          <p>If you compile it for windows or Osx, or other linux distributions please ping with how you did it to update the instructions.</p>
+          <h4>Install in my way:</h4>
+          <pre>#Make a .bin dir in your home and copy timeshifter on it.<br>mkdir ~/.bin &amp; cp timeshifter ~/.bin/<br>#Go to your home directory and append the export line to .bashrc.<br>#Dont forget to replace &ltyoursusername&gt!<br>cd ~ &amp; echo 'export PATH=$PATH:/home/&lt;yourusername&gt;/.bin/' >> .bashrc</pre>
           <h3>
             <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
             <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
           </section>
           <footer>
-            <p>This project is maintained by <a href="https://github.com/levhita">levhita</a></p>
+            <p>This project is maintained by <a href="https://twitter.com/levhita">levhita</a></p>
             <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
           </footer>
         </div>
